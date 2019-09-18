@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -o cisfun main.c
+gcc -o cisfun $CFILE
