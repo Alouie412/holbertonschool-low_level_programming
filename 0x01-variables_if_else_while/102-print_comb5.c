@@ -7,62 +7,30 @@
  */
 int main(void)
 {
-int firstNum = 0, secondNum = 0, thirdNum = 0, fourthNum = 1;
+int firstNum = 0, secondNum = 1;
 
-while (secondNum <= 9)
+for (firstNum; firstNum < 99; firstNum++)
 {
-putchar(firstNum + '0');
-putchar(secondNum + '0');
+for (secondNum; secondNum < 100; secondNum++)
+{
+putchar(firstNum / 10 + '0');
+putchar(firstNum % 10 + '0');
 putchar(' ');
-putchar(thirdNum + '0');
-putchar(fourthNum + '0');
+putchar(secondNum / 10 + '0');
+putchar(secondNum % 10 + '0');
 
-if (fourthNum == 9)
+if (firstNum == 98 && secondNum == 99)
 {
-if (thirdNum == 9)
-{
-if (secondNum == 8)
-{
-if (firstNum == 9)
-secondNum = secondNum + 2;
-else
-{
-fourthNum = 0;
-thirdNum = firstNum + 1;
-secondNum++;
-}
-}
-else if (secondNum == 9)
-{
-secondNum = 0;
-firstNum++;
-thirdNum = firstNum;
-fourthNum = 1;
+firstNum += 500;
 }
 else
-{
-thirdNum = firstNum;
-secondNum++;
-fourthNum = secondNum + 1;
-}
-}
-else
-{
-fourthNum = 0;
-thirdNum++;
-}
-}
-else
-fourthNum++;
-
-if (secondNum < 10)
 {
 putchar(',');
 putchar(' ');
 }
-
 }
-
+secondNum = firstNum + 2;
+}
 putchar('\n');
 return (0);
 }
