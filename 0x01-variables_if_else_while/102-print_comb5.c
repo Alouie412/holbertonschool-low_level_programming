@@ -21,7 +21,7 @@ putchar(secondNum % 10 + '0');
 
 if (firstNum == 98 && secondNum == 99)
 {
-firstNum += 500;
+firstNum++;
 }
 else
 {
