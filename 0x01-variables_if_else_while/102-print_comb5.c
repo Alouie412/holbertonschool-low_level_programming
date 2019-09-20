@@ -7,9 +7,9 @@
  */
 int main(void)
 {
-int firstNum = 0, secondNum= 0, thirdNum = 0, fourthNum = 1;
+int firstNum = 0, secondNum = 0, thirdNum = 0, fourthNum = 1;
 
-while(secondNum <= 9)
+while (secondNum <= 9)
 {
 putchar(firstNum + '0');
 putchar(secondNum + '0');
