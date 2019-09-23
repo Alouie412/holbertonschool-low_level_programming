@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "_putchar.c"
+#include "holberton.h"
 
 /**
  * main - check the code for Holberton School students.
@@ -8,31 +8,13 @@
  */
 int main(void)
 {
-  char letter = 'H';
+  char letter[10] = "Holberton\n";
   int i;
 
-  for (i = 0; i < 8; i++)
+  for (i = 0; i < 10; i++)
     {
-      putchar(letter);
-
-      if (letter == 'H')
-	letter = 'o';
-      else if (letter == 'o')
-	letter = 'l';
-      else if (letter == 'l')
-	letter = 'b';
-      else if (letter == 'b')
-	letter = 'e';
-      else if (letter == 'e')
-	letter = 'r';
-      else if (letter == 'r')
-	letter = 't';
-      else if (letter == 't')
-	letter = 'o';
+      putchar(letter[i]);
     }
 
-  letter = 'n';
-  putchar(letter);
-  putchar('\n');
   return (0);
 }
