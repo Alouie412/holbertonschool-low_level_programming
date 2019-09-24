@@ -7,20 +7,19 @@
  */
 int main(void)
 {
-  int a, b, total = 0;
+	int a = 3, b = 5, total = 0, i = 0, placeholder = 0;
 
-  for (a = 3; a < 1024;)
-    {
-      total += a;
-      a += 3;
-    }
+	for (i; i < 68; i++)
+		placeholder = a * b * i;
 
-  for (b = 5; b < 1024;)
-    {
-      total += b;
-      b += 5;
-    }
+	for (a; a < 1024; a += 3)
+		total += a;
 
-  printf("%d\n", total);
-  return (0);
+	for (b; b < 1024; b += 5)
+		total += b;
+
+	total -= placeholder;
+
+	printf("%d\n", total);
+	return (0);
 }
