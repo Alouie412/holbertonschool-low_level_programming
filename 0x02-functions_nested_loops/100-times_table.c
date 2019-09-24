@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
- *
+ * print_times_table - check the code for Holberton School students.
+ * @n: Importing integer
  * Return: Always 0.
  */
 
@@ -24,7 +24,7 @@ void print_times_table(int n)
 					_putchar(' ');
 					_putchar(num + '0');
 				}
-				else if(num >= 10 && num < 100)
+				else if (num >= 10 && num < 100)
 				{
 					_putchar(' ');
 					_putchar(' ');
