@@ -6,20 +6,23 @@
  */
 int main(void)
 {
-  long a = 1, b = 2, c = 0, f = 0, i = 0;
+	long a = 1, b = 2, c = 0, f = 0, i = 3;
 
-  for (i; a + b < 4000000; i++)
-    {
-      c = a + b;
-
-      if (i % 2 == 0)
-	a = c;
-      else
+	for (i; a + b < 4000000; i++)
 	{
-	  b = f = c;
-	}
-    }
+		c = a + b;
 
-  printf("%ld\n", f);
-  return (0);
+		if (i % 2 == 1)
+			a = c;
+		else
+		{
+			b = c;
+			f += c;
+		}
+	}
+
+	f += 2;
+
+	printf("%ld\n", f);
+	return (0);
 }
