@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -13,8 +12,9 @@ int main(void)
 
   for (i = 0; i < 10; i++)
     {
-      putchar(letter[i]);
+      _putchar(letter[i]);
     }
+  _putchar('\n');
 
   return (0);
 }
