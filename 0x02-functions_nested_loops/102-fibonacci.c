@@ -11,7 +11,7 @@ int main(void)
 
 	printf("%li, %li, ", a, b);
 
-	for (i; i < 47; i++)
+	for (i; i < 48; i++)
 	{
 		f = a + b;
 		printf("%li", f);
@@ -21,7 +21,7 @@ int main(void)
 		else
 		b = f;
 
-		if (i != 46)
+		if (i != 47)
 		printf(", ");
 	}
 
