@@ -1,14 +1,14 @@
 #include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
- *
+ * _islower - check the code for Holberton School students.
+ * @c: lowercase alphabet
  * Return: Always 0.
  */
 int _islower(int c)
 {
-  if (c >= 'a' && c <= 'z')
-    return (1);
-  else
-    return (0);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	else
+		return (0);
 }
