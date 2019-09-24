@@ -1,23 +1,24 @@
 #include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
+ * print_alphabet_x10 - check the code for Holberton School students.
  *
  * Return: Always 0.
  */
 void print_alphabet_x10(void)
 {
-  int i;
-  char letter;
+	int i;
+	char letter;
 
-  for (i = 0; i < 10; i++)
-    {
-      letter = 'a';
-      while (letter <= 'z')
+	for (i = 0; i < 10; i++)
 	{
-	  _putchar(letter);
-	  letter++;
+	letter = 'a';
+		while (letter <= 'z')
+		{
+			_putchar(letter);
+			letter++;
+		}
+
+	_putchar('\n');
 	}
-      _putchar('\n');
-    }
 }
