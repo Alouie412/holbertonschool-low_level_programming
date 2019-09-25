@@ -7,23 +7,19 @@
  */
 int main(void)
 {
-	long a = 1, b = 2, c = 0, f = 0, i = 3;
+	int a = 1, b = 2, num = 0, total = 0, i;
 
-	for (i; a + b < 4000000; i++)
+	for (i = 0; a + b < 4000000; i++)
 	{
-		c = a + b;
+		if (i % 2 == 0)
+			total = total + b;
+		num = a + b;
 
-		if (i % 2 == 1)
-			a = c;
-		else
-		{
-			b = c;
-			f += c;
-		}
+		a = b;
+		b = num;
 	}
 
-	f += 2;
 
-	printf("%ld\n", f);
+	printf("%d\n", total);
 	return (0);
 }
