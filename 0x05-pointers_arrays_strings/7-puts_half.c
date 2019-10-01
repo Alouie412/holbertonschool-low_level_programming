@@ -20,7 +20,7 @@ void puts_half(char *str)
 	else if (i % 2 != 0)
 		j = i / 2;
 
-	for(j += 1; j <= i; j++)
+	for (j += 1; j <= i; j++)
 		_putchar(str[j]);
 
 	_putchar('\n');
