@@ -4,7 +4,7 @@
 /**
  * print_array - check the code for Holberton School students.
  * @a: Array name
- * @b: Array index total
+ * @n: Array index total
  * Return: Always 0.
  */
 void print_array(int *a, int n)
