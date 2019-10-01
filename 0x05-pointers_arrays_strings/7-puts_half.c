@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
  * puts_half - check the code for Holberton School students.
@@ -14,7 +13,6 @@ void puts_half(char *str)
 	while (str[i] != '\0')
 		i++;
 
-	printf("%d\n", i);
 	i--;
 
 	if (i % 2 == 0)
