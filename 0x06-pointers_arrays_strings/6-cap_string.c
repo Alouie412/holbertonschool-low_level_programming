@@ -14,25 +14,12 @@ char *cap_string(char *str)
 	while (str[i] != '\0')
 		i++;
 
-	if (str[j] == '\t')
-		str[j] = ' ';
-
-	else if (str[j] >= '!' && str[j] <= '"')
-		counter = 0;
-	else if (str[j] >= ',' && str[j] <= '.')
-		counter = 0;
-	else if (str[j] >= '{' && str[j] <= '}')
-		counter = 0;
-	else if (str[j] == ';' || str[j] == '?' || str[j] == '\n' || str[j] == ' ')
-		counter = 0;
-	else if (str[j] == '(' && str[j] == ')')
-		counter = 0;
-	else
-		counter++;
-
 	for (j = 0; j < i; j++)
 	{
-		if (counter = 0)
+		if (str[j] == '\t')
+			str[j] = ' ';
+
+		if (counter == 0)
 		{
 			letter = str[j];
 			if (letter >= 'a' && letter <= 'z')
@@ -40,6 +27,19 @@ char *cap_string(char *str)
 
 			str[j] = letter;
 		}
+
+		if (str[j] >= '!' && str[j] <= '"')
+		  counter = 0;
+		else if (str[j] == ',' || str[j] == '.')
+		  counter = 0;
+		else if (str[j] >= '{' && str[j] <= '}')
+		  counter = 0;
+		else if (str[j] == ';' || str[j] == '?' || str[j] == '\n' || str[j] == ' ')
+		  counter = 0;
+		else if (str[j] == '(' && str[j] == ')')
+		  counter = 0;
+		else
+		  counter++;
 	}
 
 	return (str);
