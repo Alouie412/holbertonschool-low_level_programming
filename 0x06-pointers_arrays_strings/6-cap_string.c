@@ -25,7 +25,7 @@ char *cap_string(char *str)
 			str[j] = letter;
 		}
 
-		if (str[j] >= '!' && str[j] <= '"')
+		if (str[j] == '!' || str[j] == '"')
 			counter = 0;
 		else if (str[j] == ',' || str[j] == '.')
 			counter = 0;
@@ -33,7 +33,7 @@ char *cap_string(char *str)
 			counter = 0;
 		else if (str[j] == ';' || str[j] == '?' || str[j] == '\n' || str[j] == ' ')
 			counter = 0;
-		else if (str[j] == '(' && str[j] == ')')
+		else if (str[j] == '(' || str[j] == ')')
 			counter = 0;
 		else if (str[j] == '\t')
 		{
