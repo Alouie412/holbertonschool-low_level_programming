@@ -24,16 +24,14 @@ char *cap_string(char *str)
 				letter -= 32;
 				str[j] = letter;
 			}
+			else
+				counter++;
 		}
 
 		if (str[j] == '!' || str[j] == '"')
-			{
 			counter = 0;
-			}
 		else if (str[j] == ',' || str[j] == '.')
-		{
 			counter = 0;
-		}
 		else if (str[j] == '{' || str[j] == '}')
 			counter = 0;
 		else if (str[j] == ';' || str[j] == '?' || str[j] == '\n' || str[j] == ' ')
