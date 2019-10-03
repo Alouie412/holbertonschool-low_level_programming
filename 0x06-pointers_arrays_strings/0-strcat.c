@@ -1,8 +1,9 @@
 #include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
- *
+ * _strcat - check the code for Holberton School students.
+ * @dest: Destination string
+ * @src: String for adding
  * Return: Always 0.
  */
 char *_strcat(char *dest, char *src)
