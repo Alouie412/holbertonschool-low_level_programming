@@ -18,17 +18,22 @@ char *cap_string(char *str)
 	{
 		if (counter == 0)
 		{
-			letter = str[j];
-			if (letter >= 'a' && letter <= 'z')
+			if (str[j] >= 'a' && str[j] <= 'z')
+			{
+				letter = str[j];
 				letter -= 32;
-
-			str[j] = letter;
+				str[j] = letter;
+			}
 		}
 
 		if (str[j] == '!' || str[j] == '"')
+			{
 			counter = 0;
+			}
 		else if (str[j] == ',' || str[j] == '.')
+		{
 			counter = 0;
+		}
 		else if (str[j] == '{' || str[j] == '}')
 			counter = 0;
 		else if (str[j] == ';' || str[j] == '?' || str[j] == '\n' || str[j] == ' ')
