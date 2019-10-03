@@ -8,14 +8,17 @@
  */
 char *_strcat(char *dest, char *src)
 {
-  int i, j;
+	int i, j;
 
-  i = 0;
-  while (src[i] != '\0')
-    i++;
+	i = 0;
+	while (src[i] != '\0')
+		i++;
 
-  for (j = 0; j <= i; j++)
-    dest[j + i - 1] = src[j];
+	if (i == 0)
+		return;
 
-  return (dest);
+	for (j = 0; j <= i; j++)
+		dest[j + i - 1] = src[j];
+
+	return (dest);
 }
