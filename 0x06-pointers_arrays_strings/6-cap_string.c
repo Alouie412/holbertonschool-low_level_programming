@@ -16,9 +16,6 @@ char *cap_string(char *str)
 
 	for (j = 0; j < i; j++)
 	{
-		if (str[j] == '\t')
-			str[j] = ' ';
-
 		if (counter == 0)
 		{
 			letter = str[j];
@@ -29,17 +26,22 @@ char *cap_string(char *str)
 		}
 
 		if (str[j] >= '!' && str[j] <= '"')
-		  counter = 0;
+			counter = 0;
 		else if (str[j] == ',' || str[j] == '.')
-		  counter = 0;
-		else if (str[j] >= '{' && str[j] <= '}')
-		  counter = 0;
+			counter = 0;
+		else if (str[j] == '{' || str[j] == '}')
+			counter = 0;
 		else if (str[j] == ';' || str[j] == '?' || str[j] == '\n' || str[j] == ' ')
-		  counter = 0;
+			counter = 0;
 		else if (str[j] == '(' && str[j] == ')')
-		  counter = 0;
+			counter = 0;
+		else if (str[j] == '\t')
+		{
+			counter = 0;
+			str[j] = ' ';
+		}
 		else
-		  counter++;
+			counter++;
 	}
 
 	return (str);
