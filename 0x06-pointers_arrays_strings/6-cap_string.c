@@ -8,9 +8,9 @@
 char *cap_string(char *str)
 {
 	int i, j, counter;
-	char letter;
 
-	i = counter = j = 0;
+	i = counter = 0;
+
 	while (str[i] != '\0')
 		i++;
 
@@ -20,9 +20,7 @@ char *cap_string(char *str)
 		{
 			if (str[j] >= 'a' && str[j] <= 'z')
 			{
-				letter = str[j];
-				letter -= 32;
-				str[j] = letter;
+				str[j] = str[j] - 32;
 			}
 			else
 				counter++;
