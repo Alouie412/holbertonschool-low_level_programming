@@ -31,10 +31,7 @@ char *cap_string(char *str)
 		else if (str[j] == ';' || str[j] == '?' || str[j] == '\n')
 			counter = 0;
 		else if (str[j] == '\t')
-		{
 			counter = 0;
-			str[j] = ' ';
-		}
 		else if (str[j] == ' ')
 			counter = 0;
 		else
