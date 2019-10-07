@@ -10,19 +10,16 @@ unsigned int _strspn(char *s, char *accept)
   unsigned int i, j, count;
 
   count = 0;
-  for (i = 0; accept[i] != '\0'; i++)
+  for (i = 0; s[i] != '\0'; i++)
     {
-      for (j = 0; accept[j]; j++)
+      if (s[i] == '\0')
+	break;
+
+      for (j = 0; accept[j] != '\0'; j++)
 	{
-	if (accept[j] == s[i])
-	  {
-	  count++;
-	  printf("Count increased.\n");
-	  }
-	else
-	  printf("Count not increased.\n");
+	  if (s[j] == accept[i])
+	    count++;
 	}
-      printf("Current counter: %d\n", count);
     }
 
   return (count);
