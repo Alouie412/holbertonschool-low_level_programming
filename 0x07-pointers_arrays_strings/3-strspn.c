@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include <stdio.h>
+
 /**
  * main - check the code for Holberton School students.
  *
@@ -7,20 +7,20 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-  unsigned int i, j, count;
+	unsigned int i, j, count;
 
-  count = 0;
-  for (i = 0; s[i] != '\0'; i++)
-    {
-      if (s[i] == '\0')
-	break;
-
-      for (j = 0; accept[j] != '\0'; j++)
+	count = 0;
+	for (i = 0; s[i] != '\0'; i++)
 	{
-	  if (s[j] == accept[i])
-	    count++;
+		if (count != i)
+			break;
 	}
-    }
 
-  return (count);
+	for (j = 0; accept[j] != '\0'; j++)
+	{
+		if (s[i] == accept[j])
+			count++;
+	}
+
+	return (count);
 }
