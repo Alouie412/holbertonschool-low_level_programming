@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdio.h>
 /**
  * _strstr - check the code for Holberton School students.
  * @haystack: Array to be searched
@@ -8,25 +8,22 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j, k;
+	int i, j;
+
+	if (needle[0] == '\0')
+		return (haystack);
 
 	for (i = 0; haystack[i]; i++)
 	{
-		j = 0;
-
-		if (haystack[i] == needle[j])
+		for (j = 0; needle[j]; j++)
 		{
-			k = i;
+			if (haystack[i + j] != needle[j])
+				break;
 
-			while (haystack[i + 1] == needle[j + 1])
-			{
-				i++;
-				j++;
-			}
-
-		if (needle[j] == '\0')
-			return (haystack + k);
+			if (needle[i + j] == '\0')
+				return (haystack + i);
 		}
 	}
+
 	return ('\0');
 }
