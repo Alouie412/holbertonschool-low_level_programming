@@ -1,12 +1,12 @@
 #include "holberton.h"
 
 /**
- * variableHolder - Holds a variable to get around recursion issue
+ * varHolder - Holds a variable to get around recursion issue
  * @num: Holds a number
  *
  * Return: The number minus 1
  */
-int variableHolder(int num)
+int varHolder(int num)
 {
 	num--;
 
@@ -14,7 +14,7 @@ int variableHolder(int num)
 }
 
 /**
- * sqrt_loop - Loops through itself to determine if a natural square root exists
+ * sqrt_loop - Finds natural square root, if it exists
  * @n: Original value
  * @m: Determine if original divided by this has no remainder
  * Return: The natural square root, or -1 if one does not exist
@@ -23,10 +23,10 @@ int sqrt_loop(int n, int m)
 {
 	if (m == 1)
 		return (-1);
-	else if (n / (variableHolder(m)) == (variableHolder(m)) && (n % (variableHolder(m)) == 0))
-		return (n / (variableHolder(m)));
+	else if (n / (varHolder(m)) == (varHolder(m)) && (n % (varHolder(m)) == 0))
+		return (n / (varHolder(m)));
 	else
-		return sqrt_loop(n, (variableHolder(m)));
+		return (sqrt_loop(n, (varHolder(m))));
 }
 
 /**
@@ -40,8 +40,6 @@ int _sqrt_recursion(int n)
 		return (n);
 	else if (n < 0)
 		return (-1);
-	else
-		return sqrt_loop(n, n);
 
-	return 0;
+	return (sqrt_loop(n, n));
 }
