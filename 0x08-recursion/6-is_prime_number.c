@@ -25,7 +25,7 @@ int increment(int i, int j)
 	else if (i % variableHolder(j) == 0)
 		return (0);
 	else
-		return increment(i, j - 1);
+		return increment((i, j - 1));
 }
 /**
  * is_prime_number - check the code for Holberton School students.
