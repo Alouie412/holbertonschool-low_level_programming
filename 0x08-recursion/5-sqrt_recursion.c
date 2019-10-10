@@ -2,20 +2,18 @@
 
 /**
  * sqrt_loop - Finds natural square root, if it exists
- * @n: Original value
- * @m: Determine if original divided by this has no remainder
+ * @n: Variable holding potential natural square root
+ * @m: Variable of original inputted value
  * Return: The natural square root, or -1 if one does not exist
  */
-int sqrt_loop(long n, long m)
+int sqrt_loop(int m, int n)
 {
-	if (m == 1 || m * m > n)
-		return (-1);
-	else if ((n / m == m) && (n % m == 0))
+	if (n == m * m)
 		return (n / m);
-	else
-	  {
-		return (sqrt_loop(n, m - 1));
-	  }
+	else if (n < m * m)
+		return (-1);
+
+	return (sqrt_loop(m + 1, n));
 }
 
 /**
@@ -30,5 +28,5 @@ int _sqrt_recursion(int n)
 	else if (n < 0)
 		return (-1);
 
-	return (sqrt_loop(n, n));
+	return (sqrt_loop(1, n));
 }
