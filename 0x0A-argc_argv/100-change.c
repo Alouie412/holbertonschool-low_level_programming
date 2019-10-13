@@ -15,39 +15,25 @@ int coinConverter(int i)
 
 	while (i != 0)
 	{
-		if (i % 25 == 0)
-		{
+		if (i % 10 == 9 || i % 10 == 7)
+			i -= 2;
+		else if (i % 25 == 0)
 			i -= 25;
-			count++;
-		}
 		else if (i % 10 == 0)
-		{
 			i -= 10;
-			count++;
-		}
 		else if (i % 5 == 0)
-		{
 			i -= 5;
-			count++;
-		}
 		else if (i % 2 == 0)
 		{
 			if (i % 10 == 6)
-			{
 				i -= 1;
-				count++;
-			}
 			else
-			{
 				i -= 2;
-				count++;
-			}
 		}
 		else
-		{
 			i -= 1;
+
 		count++;
-		}
 	}
 
 	return (count);
