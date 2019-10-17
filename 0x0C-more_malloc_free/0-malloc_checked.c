@@ -5,7 +5,7 @@
 /**
  * malloc_checked - Creates an array based on passed in value
  * @b: Value passed in for array creation
- * return: Pointer to array
+ * Return: nothing
  */
 void *malloc_checked(unsigned int b)
 {
@@ -14,7 +14,7 @@ void *malloc_checked(unsigned int b)
 	ptr = malloc(b);
 
 	if (ptr == NULL)
-		exit (98);
+		exit(98);
 
 	return (ptr);
 }
