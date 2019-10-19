@@ -4,7 +4,7 @@
 
 /**
  * memClear - Frees memory
- * @s: Stuff
+ * @s: String input for memory deallocation
  * Return: Nothing
  */
 void memClear(char **s)
@@ -19,9 +19,9 @@ void memClear(char **s)
 }
 
 /**
- * wordcount - Counts stuff
- * @str: String
- * Return: Stuff
+ * wordcount - Counts number of indexes in a string
+ * @str: String being counted
+ * Return: Number of indexes
  */
 int wordcount(char *str)
 {
@@ -44,9 +44,9 @@ int wordcount(char *str)
 }
 
 /**
- * word_len - Does stuff
- * @str: A string
- * Return: Something
+ * word_len - Counts the length of a word. In other words, stops at space
+ * @str: The word being counted
+ * Return: Number of letters in a word
  */
 int word_len(char *str)
 {
@@ -59,15 +59,15 @@ int word_len(char *str)
 }
 
 /**
- * strtow - Does something awesome
- * @str: Input
- * Return: The string
+ * strtow - "Master function": Splits a string such that each word gets its own line
+ * @str: String input
+ * Return: The pointer to the very first index of the list of words
  */
 char **strtow(char *str)
 {
-	int i, j = 0, k, z;
-	int size, word = 0;
-	char **s;
+	int i, j = 0, z;
+	int size, arrayRow = 0, arrayColumn;
+	char **s = NULL;
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
@@ -86,20 +86,20 @@ char **strtow(char *str)
 		for (j = i; str[j] && str[j] != ' '; j++)
 			;
 		size = j - i;
-		s[word] = malloc((size + 1) * sizeof(char));
-		if (s[word] == NULL)
+		s[arrayRow] = malloc((size + 1) * sizeof(char));
+		if (s[arrayRow] == NULL)
 		{
 			memClear(s);
 			return (NULL);
 		}
-		for (k = 0; str[i] && str[i] != ' '; i++, k++)
-			s[word][k] = str[i];
-		s[word][k] = '\0';
+		for (arrayColumn = 0; str[i] && str[i] != ' '; i++, arrayColumn++)
+			s[arrayRow][arrayColumn] = str[i];
+		s[arrayRow][arrayColumn] = '\0';
 
 		if (!str[i])
 			i--;
 
-		word++;
+		arrayRow++;
 	}
 	return (s);
 }
