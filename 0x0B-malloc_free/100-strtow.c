@@ -35,9 +35,9 @@ int wordcount(char *str)
 			wc++;
 			for (; str[i] != ' ' && str[i] != '\0'; i++)
 				;
-	}
-	if (str[i] == '\0')
-		i--;
+			if (str[i] == '\0')
+				i--;
+		}
 	}
 
 	return (wc);
@@ -82,24 +82,24 @@ char **strtow(char *str)
 	for (i = 0; str[i]; i++)
 	{
 		if (str[i] == ' ')
-		{
 			continue;
-	}
-	for (j = i; str[j] && str[j] != ' '; j++)
-		;
-	size = j - i;
-	s[word] = malloc((size + 1) * sizeof(char));
-	if (s[word] == NULL)
-	{
-		memClear(s);
-		return (NULL);
-	}
-	for (k = 0; str[i] && str[i] != ' '; i++, k++)
-		s[word][k] = str[i];
-	s[word][k] = '\0';
-	if (!s[i])
-		i--;
-	word++;
+		for (j = i; str[j] && str[j] != ' '; j++)
+			;
+		size = j - i;
+		s[word] = malloc((size + 1) * sizeof(char));
+		if (s[word] == NULL)
+		{
+			memClear(s);
+			return (NULL);
+		}
+		for (k = 0; str[i] && str[i] != ' '; i++, k++)
+			s[word][k] = str[i];
+		s[word][k] = '\0';
+
+		if (!str[i])
+			i--;
+
+		word++;
 	}
 	return (s);
 }
