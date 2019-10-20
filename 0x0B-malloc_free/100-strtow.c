@@ -44,62 +44,47 @@ int wordcount(char *str)
 }
 
 /**
- * word_len - Counts the length of a word. In other words, stops at space
- * @str: The word being counted
- * Return: Number of letters in a word
- */
-int word_len(char *str)
-{
-	int i, wl = 0;
-
-	for (i = 0; str[i] && str[i] != ' '; i++)
-		++wl;
-
-	return (wl);
-}
-
-/**
  * strtow - "Master function": Splits a string such that each word gets its own line
  * @str: String input
  * Return: The pointer to the very first index of the list of words
  */
 char **strtow(char *str)
 {
-	int i, j = 0, z;
-	int size, arrayRow = 0, arrayColumn;
-	char **s = NULL;
+	int i, j = 0;
+	int inputLength, wordSize, arrayRow = 0, arrayColumn;
+	char **newStr = NULL;
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
-	z = wordcount(str);
-	if (!z)
+	inputLength = wordcount(str);
+	if (!inputLength)
 		return (NULL);
-	s = malloc(sizeof(char *) * (z + 1));
-	if (s == NULL)
+	newStr = malloc(sizeof(char *) * (inputLength + 1));
+	if (newStr == NULL)
 		return (NULL);
 
-	s[word] = NULL;
+	newStr[arrayRow] = NULL;
 	for (i = 0; str[i]; i++)
 	{
 		if (str[i] == ' ')
 			continue;
 		for (j = i; str[j] && str[j] != ' '; j++)
 			;
-		size = j - i;
-		s[arrayRow] = malloc((size + 1) * sizeof(char));
-		if (s[arrayRow] == NULL)
+		wordSize = j - i;
+		newStr[arrayRow] = malloc((wordSize + 1) * sizeof(char));
+		if (newStr[arrayRow] == NULL)
 		{
-			memClear(s);
+			memClear(newStr);
 			return (NULL);
 		}
 		for (arrayColumn = 0; str[i] && str[i] != ' '; i++, arrayColumn++)
-			s[arrayRow][arrayColumn] = str[i];
-		s[arrayRow][arrayColumn] = '\0';
+			newStr[arrayRow][arrayColumn] = str[i];
+		newStr[arrayRow][arrayColumn] = '\0';
 
 		if (!str[i])
 			i--;
 
 		arrayRow++;
 	}
-	return (s);
+	return (newStr);
 }
