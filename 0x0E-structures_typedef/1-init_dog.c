@@ -1,6 +1,4 @@
 #include "dog.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * init_dog - Program that initializes certain variables
@@ -12,12 +10,10 @@
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	if(name != NULL)
+	if (d != NULL)
+	{
 		d->name = name;
-
-	if(age != '\0')
 		d->age = age;
-
-	if(owner != NULL)
 		d->owner = owner;
+	}
 }
