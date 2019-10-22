@@ -9,12 +9,15 @@
  */
 void memClear(char **s)
 {
+  /* Variable */
 	int i;
 
+	/* Loop through and free up each row of memory */
 	for (i = 0; s[i] != NULL; i++)
 	{
 		free(s[i]);
 	}
+	/* Free the block itself*/
 	free(s);
 }
 
@@ -25,21 +28,27 @@ void memClear(char **s)
  */
 int wordcount(char *str)
 {
+  /* Variables */
 	int i;
 	int wc = 0;
 
+	/* Loop through given string*/
 	for (i = 0; str[i]; i++)
 	{
+	  /* If the current index is anything other than a space, +1 to wc */
 		if (str[i] != ' ')
 		{
 			wc++;
+			/* Check the next index(es) for either space or null byte */
 			for (; str[i] != ' ' && str[i] != '\0'; i++)
 				;
+			/* If the end of the string is reached, exclude the null byte itself by decrementing by 1 */
 			if (str[i] == '\0')
 				i--;
 		}
 	}
 
+	/* Return the word count*/
 	return (wc);
 }
 
@@ -81,9 +90,9 @@ char **strtow(char *str)
 			newStr[arrayRow][arrayColumn] = str[i];
 		newStr[arrayRow][arrayColumn] = '\0';
 
-		if (!str[i])
+		/*		if (!str[i])
 			i--;
-
+		*/
 		arrayRow++;
 	}
 	return (newStr);
