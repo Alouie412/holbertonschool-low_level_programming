@@ -14,11 +14,11 @@
 #include <stdlib.h>
 
 /**
- * memClear - Frees memory
+ * mem_clear - Frees memory
  * @s: String input for memory deallocation
  * Return: Nothing
  */
-void memClear(char **s)
+void mem_clear(char **s)
 {
   /* For loop variable*/
 	int i;
@@ -33,11 +33,11 @@ void memClear(char **s)
 }
 
 /**
- * wordcount - Counts number of indexes in a string
+ * word_count - Counts number of indexes in a string
  * @str: String being counted
  * Return: Number of indexes
  */
-int wordcount(char *str)
+int word_count(char *str)
 {
   /* For loop variable. wc starts at 0 to ensure no garbage values are added */
 	int i;
@@ -51,8 +51,8 @@ int wordcount(char *str)
 		{
 			wc++;
 			/* Check the next index(es) for either space or null byte */
-			for (; str[i] != ' ' && str[i] != '\0'; i++)
-				;
+			while (str[i] != ' ' && str[i] != '\0')
+				i++;
 			/* If the end of the string is reached, exclude the null byte itself by decrementing by 1 */
 			if (str[i] == '\0')
 				i--;
@@ -72,40 +72,40 @@ char **strtow(char *str)
 {
   /**
    * Variables
-   * @i and @j: for loop counters
-   * @inputLength: Holds length of the input string
-   * @wordSize: Holds length of a particular word within the input string
-   * @arrayRow: Integer that keeps track of row index
-   * @arrayColumn: Integer that keeps track of column index
-   * @newStr: Newly created double pointer and what will be returned at the end
+   * @i and @j: for loop counters and holding index placements
+   * @input_length: Holds length of the input string
+   * @word_size: Holds length of a particular word within the input string
+   * @array_row: Integer that keeps track of row index
+   * @array_column: Integer that keeps track of column index
+   * @new_str: Newly created double pointer and what will be returned at the end
    */
 	int i, j = 0;
-	int inputLength, wordSize, arrayRow = 0, arrayColumn;
-	char **newStr = NULL;
+	int input_length, word_size, array_row = 0, array_column;
+	char **new_str = NULL;
 
 	/* If the input string or the first index of string is null, does not exist, return NULL */
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
 
 	/* Take the string input and calculate its length */
-	inputLength = wordcount(str);
+	input_length = word_count(str);
 
 	/* If the program cannot calculate the string length, return NULL */
-	if (!inputLength)
+	if (!input_length)
 		return (NULL);
 
 	/**
 	 * Allocate the memory for the double pointer. Used char * because newStr is declared as a double pointer.
 	 * Added 1 as well to account for the null byte, as the instructions stated that the last line must be NULL
 	 */
-	newStr = malloc(sizeof(char *) * (inputLength + 1));
+	new_str = malloc(sizeof(char *) * (input_length + 1));
 
 	/* If not enough memory can be allocated for our newStr, return NULL */
-	if (newStr == NULL)
+	if (new_str == NULL)
 		return (NULL);
 
 	/* */
-	newStr[arrayRow] = NULL;
+	new_str[array_row] = NULL;
 
 	/* Start from the first index of our arrayRow */
 	for (i = 0; str[i]; i++)
@@ -120,23 +120,24 @@ char **strtow(char *str)
 		 * Assuming the above if statement does not run, use variable j to "save" our position
 		 * Afterwards, loop through the string until a space or the null byte is found
 		 */
-		for (j = i; str[j] && str[j] != ' '; j++)
-			;
+		j = i;
+		while (str[j] != '\0' && str[j] != ' ')
+			j++;
 		/* Get the size of our word by taking the difference of j and i. In other words, the placements of the two in our string */
-		wordSize = j - i;
+		word_size = j - i;
 		/**
 		 * Allocate the memory for each word. Char is used because we are giving each string, char array, its own memory.
 		 * Added 1 as well to account for the null byte
 		 */
-		newStr[arrayRow] = malloc((wordSize + 1) * sizeof(char));
+		new_str[array_row] = malloc((word_size + 1) * sizeof(char));
 		/**
 		 * If memory allocation fails at any point during this program, run memClear helper function
 		 * This helper function clears out all memory already allocated to ensure no memory leaks
 		 * Afterwards, return NULL
 		 */
-		if (newStr[arrayRow] == NULL)
+		if (new_str[array_row] == NULL)
 		{
-			memClear(newStr);
+			mem_clear(new_str);
 			return (NULL);
 		}
 		/**
@@ -144,12 +145,12 @@ char **strtow(char *str)
 		 * If the two conditions are true, copy the position of string i to the appropriate memory in newStr
 		 * Afterwards, move to the next column and repeat
 		 */
-		for (arrayColumn = 0; str[i] && str[i] != ' '; i++, arrayColumn++)
-			newStr[arrayRow][arrayColumn] = str[i];
+		for (array_column = 0; str[i] && str[i] != ' '; i++, array_column++)
+			new_str[array_row][array_column] = str[i];
 		/**
 		 * Put the null byte at the end of the string to indicate this is the end of the string
 		 */
-		newStr[arrayRow][arrayColumn] = '\0';
+		new_str[array_row][array_column] = '\0';
 
 		/**
 		 * If we're at the null byte, decrement by 1
@@ -162,8 +163,8 @@ char **strtow(char *str)
 			i--;
 		
 		/* Move to the next row */
-		arrayRow++;
+		array_row++;
 	}
 	/* Return our newly split up string */
-	return (newStr);
+	return (new_str);
 }
