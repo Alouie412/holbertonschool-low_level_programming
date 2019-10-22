@@ -18,14 +18,14 @@ int _strlen(char *str)
 }
 
 /**
- * _strcpy: Copies the string from src to dest
- * @dest: String to be copied over
- * @src: String to copy from
- * Return: Pointer to beginning of string
+ * _strcpy - Copies a string from src to dest
+ * @dest: String to be copied to
+ * @src: String to be copied from
+ *
+ * Return: Pointer to start of dest
  */
-char _strcpy(char *dest, char *src)
+char *_strcpy(char *dest, char *src)
 {
-	char temp;
 	int i;
 
 	for (i = 0; src[i]; i++)
@@ -44,7 +44,7 @@ char _strcpy(char *dest, char *src)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *newDog = NULL;
-	char *newName = NULL, *newOwner = NULL;
+	char *newName, *newOwner;
 	int newNameLen, newOwnerLen;
 
 	if (name == NULL || owner == NULL)
