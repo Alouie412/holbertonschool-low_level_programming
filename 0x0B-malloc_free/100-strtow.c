@@ -87,7 +87,7 @@ char **strtow(char *str)
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
 
-	/* Take the string input and calculate its length */
+	/* Take the string input and calculate its length using word_count helper function */
 	input_length = word_count(str);
 
 	/* If the program cannot calculate the string length, return NULL */
