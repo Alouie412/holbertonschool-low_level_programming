@@ -1,7 +1,38 @@
 #include "dog.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+
+/**
+ * _strlen - Gets the length of the input string
+ * @str: String input
+ * Return: Number of indexes in a string
+ */
+int _strlen(char *str)
+{
+	int i;
+
+	for (i = 0; str[i]; i++)
+		;
+
+	return (i);
+}
+
+/**
+ * _strcpy: Copies the string from src to dest
+ * @dest: String to be copied over
+ * @src: String to copy from
+ * Return: Pointer to beginning of string
+ */
+char _strcpy(char *dest, char *src)
+{
+	char temp;
+	int i;
+
+	for (i = 0; src[i]; i++)
+		dest[i] = src[i];
+
+	return (dest);
+}
 
 /**
  * new_dog - Program that creates a new dog. That is, creates a new struct
@@ -24,8 +55,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (newDog == NULL)
 		return (NULL);
 
-	newNameLen = strlen(name);
-	newOwnerLen = strlen(owner);
+	newNameLen = _strlen(name);
+	newOwnerLen = _strlen(owner);
 
 	newName = malloc((newNameLen + 1) * sizeof(char));
 	newOwner = malloc((newOwnerLen + 1) * sizeof(char));
@@ -38,9 +69,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	newDog->name = strcpy(newName, name);
+	newDog->name = _strcpy(newName, name);
 	newDog->age = age;
-	newDog->owner = strcpy(newOwner, owner);
+	newDog->owner = _strcpy(newOwner, owner);
 
 	return (newDog);
 }
