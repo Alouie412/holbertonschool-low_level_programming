@@ -7,24 +7,39 @@
  * @name: Stores the name char array
  * @age: Stores the age float
  * @owner: Stores the owner char array
- * Return: Pointer to the new struct
+ * Return: Pointer to the newly created struct
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-  	dog_t *ptr = NULL;
+	dog_t *newDog = NULL;
+	char *newName = NULL, *newOwner = NULL;
+	int newNameLen, newOwnerLen;
 
 	if (name == NULL || owner == NULL)
 		return (NULL);
 
- 	ptr = malloc(sizeof(name) + sizeof(age) + sizeof(owner)); 
+	newDog = malloc(sizeof(dog_t));
 
-	if (ptr == NULL)
+	if (newDog == NULL)
 		return (NULL);
 
-	ptr->name = name;
-	printf("%p\n", ptr->name);
-	ptr->age = age;
-	ptr->owner = owner;
+	newNameLen = strlen(name);
+	newOwnerLen = strlen(owner);
 
-	return (ptr);
+	newName = malloc((newNameLen + 1) * sizeof(char));
+	newOwner = malloc((newOwnerLen + 1) * sizeof(char));
+
+	if (newName == NULL || newOwner == NULL)
+	{
+		free(newName);
+		free(newOwner);
+		free(newDog);
+		return (NULL);
+	}
+
+	newDog->name = strcpy(newName, name);
+	newDog->age = age;
+	newDog->owner = strcpy(newOwner, owner);
+
+	return (newDog);
 }
