@@ -11,21 +11,20 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *ptr = NULL;
+  	dog_t *ptr = NULL;
 
 	if (name == NULL || owner == NULL)
 		return (NULL);
 
-	ptr = malloc(sizeof(name) + sizeof(age) + sizeof(owner));
+ 	ptr = malloc(sizeof(name) + sizeof(age) + sizeof(owner)); 
 
 	if (ptr == NULL)
 		return (NULL);
 
 	ptr->name = name;
+	printf("%p\n", ptr->name);
 	ptr->age = age;
 	ptr->owner = owner;
-
-	free(ptr);
 
 	return (ptr);
 }
