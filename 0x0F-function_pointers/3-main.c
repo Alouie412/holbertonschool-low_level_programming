@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
 	ptr = get_op_func(argv[2]);
 
-	if (ptr == NULL)
+	if (ptr == NULL || argv[1] == NULL || argv[3] == NULL)
 	{
 		printf("Error\n");
 		exit(99);
