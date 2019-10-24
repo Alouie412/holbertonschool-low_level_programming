@@ -132,8 +132,6 @@ char **strtow(char *str)
 		 * If we do not decrement by 1 at the null byte, we increment by 1, thereby passing the null byte
 		 * which may result in extra, undesirable text to be printed out, or possibly segmentation fault
 		 */
-		if (!str[i])
-			i--;
 		
 		/* Move to the next row */
 	}
