@@ -1,44 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "calc.h"
-#include "function_pointers.h"
+#include "3-calc.h"
 
+/**
+ * main - Start here to do stuff
+ * @argc: Number of arguments passed in
+ * @argv: Arguments stored in each index
+ * Return: Success
+ */
 int main(int argc, char *argv[])
 {
-  int num1, num2;
-  int result;
-  int i;
+	int result, num1, num2;
+	int (*ptr)(int, int);
 
-  for (i = 0; i < argc; i++)
-    {
-      printf("%s\n", argv[i]);
-    }
+	if (argc < 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
-  if (argc < 4)
-    {
-      printf("Error. Not enough arguments\n");
-      exit(98);
-    }
+	if ((*argv[2] == '/' || *argv[2] == '%') && *argv[3] == '0')
+	{
+		printf("Error\n");
+		exit(100);
+	}
 
-  if (*argv[2] != '+' && *argv[2] != '-' && *argv[2] != '*' && *argv[2] != '/' && *argv[2] != '%')
-    {
-      printf("Error. Cannot recognize operator\n");
-      exit(99);
-    }
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
 
-  if ((*argv[2] == '/' || *argv[2] == '%') && *argv[3] == '0')
-    {
-      printf("Error. Division by 0\n");
-      exit(100);
-    }
+	ptr = get_op_func(argv[2]);
 
-  num1 = atoi(argv[1]);
-  num2 = atoi(argv[3]);
+	if (ptr == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
-  printf("Test~\n");
-  result = get_op_func(argv[2])(num1, num2);
+	result = ptr(num1, num2);
 
-  printf("%d\n", result);
+	printf("%d\n", result);
 
-  return (0);
+	return (0);
 }

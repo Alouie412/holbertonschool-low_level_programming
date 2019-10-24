@@ -1,10 +1,15 @@
-#include "calc.h"
+#include "3-calc.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-/* ops[6][2] */
-int (*get_op_func(char *s))(int a, int b)
+/**
+ * get_op_func - Program that determines which operator to use
+ * @s: Char that deremines what operator function to use
+ * Return: Pointer to the appropriate operator function, or NULL if failed
+ */
+int (*get_op_func(char *s))(int, int)
 {
+	/* ops[6][2]*/
     op_t ops[] = {
     {"+", op_add},
     {"-", op_sub},
@@ -18,12 +23,8 @@ int (*get_op_func(char *s))(int a, int b)
   i = 0;
   while (i < 5)
     {
-      printf("Value of i is %d. Now entering if statement.\n", i);
-      if (ops[i].op == s)
-	{
+      if (*ops[i].op == *s)
 	  return (ops[i].f);
-	}
-      printf("No match found. Now incrementing.\n");
       i++;
     }
 
