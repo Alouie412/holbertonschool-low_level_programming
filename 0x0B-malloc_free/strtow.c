@@ -58,13 +58,13 @@ char **strtow(char *str)
    * @new_str: Newly created double pointer and what will be returned at the end
    * Note that you do not need to use these specific variables; they are named only for clarification
    * because the strtow function is very complex and requires clarification and guidance
-   * Comments within this function assume usage of our declared variables. Replace if necessary
+   * Comments within this function assume usage of our declared variables and helper functions. Replace if necessary
    */
 	int i, j = 0;
 	int input_length, word_size, array_row = 0, array_column;
 	char **new_str = NULL;
 
-	/* If the input string or the first index of string is null does not exist, return NULL */
+	/* If the input string or the first index of string is null (does not exist), return NULL */
 
 	/* Take the string input and calculate its length using word_count helper function */
 
@@ -95,6 +95,7 @@ char **strtow(char *str)
 		/**
 		 * Assuming the above if statement does not run, use variable j to "save" our position i
 		 * Afterwards, loop through the string with j until a space or the null byte is found
+		 * Through this, we have found our word and can set aside memory so that this word gets its own line
 		 */
 
 		/**
@@ -109,15 +110,15 @@ char **strtow(char *str)
 		 */
 
 		/**
-		 * If memory allocation fails at any point during this program, run memClear helper function
+		 * If memory allocation fails at any point during this program, run mem_clear helper function
 		 * This helper function clears out all memory already allocated to ensure no memory leaks happen
 		 * Afterwards, return NULL
 		 */
 
 		/**
-		 * Starting at arrayColumn at 0, check to make sure that the index does not contain a space
+		 * Starting at array_column at 0, check to make sure that the index does not contain a space
 		 * Also check to make sure that the index does not contain the null terminator
-		 * If both conditions are met, copy the position of string i to the appropriate memory in newStr
+		 * If both conditions are met, copy the position of string i to the appropriate memory in new_str
 		 * Afterwards, move to the next column and repeat
 		 */
 
@@ -128,12 +129,12 @@ char **strtow(char *str)
 		/**
 		 * If we're at the null byte, decrement by 1
 		 * The reason does not look very intuitive, so we'll try to explain it
-		 * After this line and arrayRow++, we enter the for loop's incrementation phase from line 111
+		 * After this line and array_row++, we enter the for loop's incrementation phase from line 86
 		 * If we do not decrement by 1 at the null byte, we increment by 1, thereby passing the null byte
 		 * which may result in extra, undesirable text to be printed out, or possibly segmentation fault
 		 */
 		
 		/* Move to the next row */
 	}
-	/* Return our newly split up string */
+	/* Return our newly split up 2d array of strings */
 }
