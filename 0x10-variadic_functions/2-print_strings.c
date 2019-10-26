@@ -2,12 +2,19 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/**
+ * print_strings - Variadic function that prints strings from arguments
+ * that are passed into this function
+ * @separator: What separates the arguments being passed in
+ * @n: Number of arguments being passed in
+ * Return: Nothing
+ */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i;
 	char *str = NULL;
-
 	va_list argument_input;
+
 	va_start(argument_input, n);
 
 	for (i = 0; i < n; i++)

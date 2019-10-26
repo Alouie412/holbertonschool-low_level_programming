@@ -1,8 +1,13 @@
-
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
 
+/**
+ * print_all - Variadic function that can print any argument passed in
+ * as long as it is a character, integer, float, or string
+ * @format: The data type being passed into the function
+ * Return: Nothing
+ */
 void print_all(const char * const format, ...)
 {
 	int i = 0;
