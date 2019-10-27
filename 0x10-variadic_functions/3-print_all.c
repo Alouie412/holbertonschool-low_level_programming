@@ -12,6 +12,8 @@ void print_all(const char * const format, ...)
 {
 	int i = 0;
 	va_list argument_input;
+	char *str = "(nil)";
+	char *sarray = NULL;
 
 	va_start(argument_input, format);
 
@@ -29,7 +31,10 @@ void print_all(const char * const format, ...)
 				printf("%f", (float)va_arg(argument_input, double));
 				break;
 			case 's':
-				printf("%s", va_arg(argument_input, char *));
+				sarray = va_arg(argument_input, char *);
+				if (sarray == NULL)
+					sarray = str;
+				printf("%s", sarray);
 				break;
 			default:
 				i++;
