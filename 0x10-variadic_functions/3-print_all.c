@@ -23,13 +23,13 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-				printf("%c", (char)va_arg(argument_input, int));
+				printf("%c", va_arg(argument_input, int));
 				break;
 			case 'i':
 				printf("%d", va_arg(argument_input, int));
 				break;
 			case 'f':
-				printf("%f", (float)va_arg(argument_input, double));
+				printf("%f", va_arg(argument_input, double));
 				break;
 			case 's':
 				sarray = va_arg(argument_input, char *);
@@ -46,6 +46,6 @@ void print_all(const char * const format, ...)
 			printf("%s", separator);
 		i++;
 	}
-	va_end(argument_input);
 	printf("\n");
+	va_end(argument_input);
 }
