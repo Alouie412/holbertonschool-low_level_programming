@@ -33,7 +33,7 @@ void print_all(const char * const format, ...)
 				break;
 			default:
 				i++;
-				continue:
+				continue;
 		}
 		if ((format[i + 1] != '\0') && (format[i] == 'c' || format[i] == 'i' ||
 					format[i] == 'f' || format[i] == 's'))
