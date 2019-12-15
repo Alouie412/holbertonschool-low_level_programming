@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * print_dlistint - Function that counts the number of elements
+ * dlistint_len - Function that counts the number of elements
  * in a given linked list
  * @h: The passed in linked list
  * Return: The number of elements printed
