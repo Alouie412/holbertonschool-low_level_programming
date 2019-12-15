@@ -5,14 +5,19 @@
  * in the linked list
  * @head: The passed in linked list
  * @index: The position of the desired node
- * Return: The desired node
+ * Return: The desired node, if it exists. Otherwise, NULL
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-	unsigned int i;
+	unsigned int i = 0;
 
-	for (i = 0; i < index; i++)
+	while (head != NULL)
+	{
+		if (i == index)
+			return (head);
 		head = head->next;
+		i++;
+	}
 
-	return (head);
+	return (NULL);
 }
