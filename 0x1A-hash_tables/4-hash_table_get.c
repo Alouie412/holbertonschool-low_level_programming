@@ -1,5 +1,13 @@
 #include "hash_tables.h"
 
+/**
+ * hash_table_get - Function that retrieves the value at a given
+ * key. Assuming the key exists within the hash table, anyway
+ * @ht: The hash table
+ * @key: The key. Needed to access a particular index in the
+ * hash table
+ * Return: The value inside the key, or NULL if the key does not exist
+ */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int index;
@@ -13,5 +21,5 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 		ht->array[index] = ht->array[index]->next;
 	}
 
-	return NULL;
+	return (NULL);
 }
