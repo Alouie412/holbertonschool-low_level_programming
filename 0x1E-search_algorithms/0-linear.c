@@ -12,6 +12,9 @@ int linear_search(int *array, size_t size, int value)
 {
 	int position = 0;
 
+	if (array == NULL)
+		return (-1);
+
 	/*
 	 * Size is typecasted into an int, because negative numbers
 	 * are allowed in the array and we need to compare our position
