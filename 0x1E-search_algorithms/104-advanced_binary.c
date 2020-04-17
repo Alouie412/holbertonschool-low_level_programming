@@ -43,12 +43,12 @@ int recursive_binary(int *array, int value, int begin, int end)
 	 */
 	if (array[mid] == value && array[mid - 1] != value)
 		return (mid);
-	else if (array[mid - 1] == value)
-		end = mid;
+	/* else if (array[mid - 1] == value) */
+	/*	end = mid; */
 	else if (array[mid] < value)
 		begin = mid + 1;
 	else
-		end = mid - 1;
+		end = mid;
 
 	return (recursive_binary(array, value, begin, end));
 }
